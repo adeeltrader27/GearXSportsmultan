@@ -146,21 +146,35 @@ select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:11px
 .ord{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}.ord small{color:var(--muted);margin-left:8px}.ord p{margin:2px 0 0;color:var(--muted)}.oright{display:flex;flex-direction:column;align-items:flex-end}
 .note{color:var(--muted);font-size:13px;margin:12px 0 0}
 footer .logo{font-size:22px}
+
+:root[data-theme="dark"] .price{color:#5FD08F}
+.promo{background:rgba(212,175,55,.16);border:1px solid #D4AF37;border-radius:10px;padding:8px 12px;font-size:14px;margin:0 0 10px}
+.pill{display:inline-block;background:rgba(245,196,81,.15);color:#F5C451;border:1px solid #F5C451;border-radius:999px;padding:3px 14px;font-weight:600;margin-bottom:14px}
+.line.dl{color:var(--turf);font-weight:600}:root[data-theme="dark"] .line.dl{color:#5FD08F}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pick button{display:flex;align-items:center;gap:8px;text-align:left;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:6px;cursor:pointer;font:600 13px Barlow,sans-serif;transition:.2s}
+.pick button:hover{border-color:#D4AF37;transform:translateY(-2px)}.pick img{width:40px;height:40px;object-fit:contain;background:#fff;border-radius:8px;flex:none}.pick small{display:block;color:var(--muted);font-weight:400}
+.capb{display:flex;gap:8px}.capb .hgh{margin-left:0}
+.swap{animation:swapin .7s}@keyframes swapin{from{opacity:0;transform:translateY(14px)}}
+.cbans{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px}@media(max-width:700px){.cbans{grid-template-columns:1fr}}
+.cban{margin:0;border-radius:16px;overflow:hidden;position:relative;opacity:.6;transition:opacity .4s}.cban:hover{opacity:.95}.cban svg{display:block;width:100%;height:auto}
+.cban figcaption{position:absolute;left:12px;bottom:10px;color:#fff;font:600 12px Barlow,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 6px #000}
+.hbtn svg{display:block}
+.panel a:not(.btn){color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--brand)}
 </style>
 </head>
 <body>
 <div id="splash" aria-hidden="true"><div class="sp-in"><img class="sball" id="sball" alt=""><div class="sbrand" id="sbrand"></div><div class="ssub">MULTAN</div><div class="sbar"></div></div></div>
 <header><div class="wrap"><a class="logo" href="#top">Gear<b>X</b>Sports<small>Multan</small></a>
 <nav class="nav" aria-label="Main"><a href="#top" class="on">Home</a><a href="#shop">See Balls</a><a href="#order">Order Now</a><a href="#details">See Details</a><a href="#contact">Contact Us</a></nav>
-<div class="hacts"><button class="btn hbtn" id="acct">Login</button><button class="btn cartbtn" id="cartbtn" aria-label="Open cart">Cart <span id="badge">0</span></button></div></div></header>
+<div class="hacts"><button class="btn hbtn" id="theme" aria-label="Switch theme"></button><button class="btn hbtn" id="acct">Login</button><button class="btn cartbtn" id="cartbtn" aria-label="Open cart">Cart <span id="badge">0</span></button></div></div></header>
 
 <div class="hero" id="top"><div class="wrap herogrid">
-<div><h1 class="brand"><b class="g">Gear</b><b class="x">X</b><b class="s">Sports</b><em>Multan</em></h1>
+<div><span class="pill" id="heroPill">First order: 5% off</span><h1 class="brand"><b class="g">Gear</b><b class="x">X</b><b class="s">Sports</b><em>Multan</em></h1>
 <p>Leather hard cricket balls in red and white. Pick your balls, send the order on WhatsApp and get your PDF order slip.</p>
-<a class="btn" href="#order">Order now</a><a class="btn alt hgh" href="#shop">See balls</a></div>
+<a class="btn" href="#order" id="heroOrder">Order now</a><a class="btn alt hgh" href="#shop">See balls</a></div>
 <div class="banner" id="banner" role="region" aria-roledescription="carousel" aria-label="Featured balls"><div class="slides" id="slides"></div><div class="dots" id="dots"></div></div>
 </div><img class="mini" id="mini" alt="" aria-hidden="true"></div>
-<div class="strip" aria-hidden="true"><div class="track"><span>★ Premium leather balls</span><span>★ Order in one tap on WhatsApp</span><span>★ PDF slip with every order</span><span>★ GearXSports Multan</span><span>★ Premium leather balls</span><span>★ Order in one tap on WhatsApp</span><span>★ PDF slip with every order</span><span>★ GearXSports Multan</span></div></div>
+<div class="strip" aria-hidden="true"><div class="track"><span>★ 5% off your first order</span><span>★ Order in one tap on WhatsApp</span><span>★ PDF slip with every order</span><span>★ GearXSports Multan</span><span>★ 5% off your first order</span><span>★ Order in one tap on WhatsApp</span><span>★ PDF slip with every order</span><span>★ GearXSports Multan</span></div></div>
 <section id="shop"><div class="wrap">
 <h2>The balls</h2>
 <p class="sub">Tap Add to cart, then open your cart to review and check out. Prices are in Pakistani rupees.</p>
@@ -176,7 +190,7 @@ footer .logo{font-size:22px}
 <label for="rtext">Your comment</label><textarea id="rtext" rows="3"></textarea><p class="err" id="rerr" role="alert"></p><button class="btn" id="rsubmit">Post review</button></div></div></div></div></section>
 <section id="order" style="background:var(--surface);border-top:1px solid var(--line)"><div class="wrap">
 <h2>Your order</h2>
-<p class="sub">Add your details. WhatsApp opens with the full order ready to send, and your PDF slip downloads.</p>
+<p class="sub">Your selected balls are listed here. Add your details, then WhatsApp opens with the full order ready to send and your PDF slip downloads.</p>
 <div class="checkout">
 <div class="panel"><h3>Delivery details</h3>
 <label for="name">Your name</label><input id="name" autocomplete="name">
@@ -185,7 +199,7 @@ footer .logo{font-size:22px}
 <label for="note">Anything else (optional)</label><input id="note">
 </div>
 <div class="panel"><h3>Summary</h3>
-<div id="lines"></div>
+<p class="promo" id="promo" hidden></p><div id="lines"></div><p class="note" style="margin:12px 0 6px">Add more balls</p><div class="pick" id="pick"></div><div id="calc" style="margin-top:8px"></div>
 <div class="total"><span>Total</span><span id="total">Rs 0</span></div>
 <p class="err" id="err" role="alert"></p>
 <div class="actions">
@@ -196,6 +210,22 @@ footer .logo{font-size:22px}
 </div></div></section>
 
 <section id="contact" style="background:var(--surface);border-top:1px solid var(--line)"><div class="wrap"><h2>Contact us</h2><p class="sub">Questions about a ball or an order? Message us on WhatsApp.</p>
+<div class="cbans"><figure class="cban"><svg viewBox="0 0 400 220" role="img" aria-label="Illustration of the GearXSports shop in Multan"><defs><linearGradient id="sk1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A6270"/><stop offset="1" stop-color="#0B1F23"/></linearGradient></defs>
+<rect width="400" height="220" fill="url(#sk1)"/><g fill="#fff" opacity=".5"><circle cx="40" cy="30" r="1.5"/><circle cx="120" cy="18" r="1.2"/><circle cx="372" cy="60" r="1.2"/><circle cx="70" cy="64" r="1"/></g><circle cx="350" cy="40" r="15" fill="#F5C451" opacity=".55"/>
+<g opacity=".8"><rect x="70" y="66" width="260" height="134" fill="#CBD8D4" fill-opacity=".3" stroke="#CBD8D4" stroke-opacity=".5"/><rect x="64" y="58" width="272" height="12" fill="#CBD8D4" fill-opacity=".45"/>
+<rect x="96" y="76" width="208" height="52" rx="5" fill="#FF5A1F" fill-opacity=".85"/>
+<text x="200" y="107" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="800" font-style="italic" font-size="30" fill="#fff">GearXSports</text>
+<text x="200" y="122" text-anchor="middle" font-family="Barlow,sans-serif" font-weight="600" font-size="10" letter-spacing="7" fill="#FFE9A8">MULTAN</text>
+<g fill="#FF5A1F" fill-opacity=".6"><rect x="92" y="134" width="18" height="12"/><rect x="128" y="134" width="18" height="12"/><rect x="164" y="134" width="18" height="12"/><rect x="200" y="134" width="18" height="12"/><rect x="236" y="134" width="18" height="12"/><rect x="272" y="134" width="18" height="12"/></g>
+<rect x="92" y="134" width="216" height="12" fill="#fff" fill-opacity=".18"/><rect x="108" y="150" width="64" height="50" fill="#0B1F23" fill-opacity=".7"/><rect x="196" y="150" width="96" height="36" fill="#0B1F23" fill-opacity=".6" stroke="#CBD8D4" stroke-opacity=".6"/>
+<circle cx="244" cy="168" r="11" fill="#C0281E"/><path d="M236 163q8 5 16 0M236 173q8-5 16 0" fill="none" stroke="#fff" stroke-opacity=".8"/></g><rect y="200" width="400" height="20" fill="#06161a"/></svg><figcaption>Our shop · GearXSports Multan</figcaption></figure><figure class="cban"><svg viewBox="0 0 400 220" role="img" aria-label="Illustration of the Multan skyline"><defs><linearGradient id="sk2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A6F63"/><stop offset="1" stop-color="#0B1F23"/></linearGradient></defs>
+<rect width="400" height="220" fill="url(#sk2)"/><circle cx="60" cy="52" r="20" fill="#F5C451" opacity=".5"/>
+<text x="16" y="36" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="800" font-size="26" letter-spacing="8" fill="none" stroke="#fff" stroke-opacity=".6">MULTAN</text>
+<g fill="#DCE7E3" fill-opacity=".45"><rect x="30" y="150" width="60" height="50"/><path d="M38 150a22 22 0 0 1 44 0z"/><rect x="94" y="112" width="8" height="88"/><path d="M92 112a6 6 0 0 1 12 0z"/>
+<rect x="124" y="124" width="10" height="76"/><rect x="226" y="124" width="10" height="76"/><path d="M122 124a7 7 0 0 1 14 0zM224 124a7 7 0 0 1 14 0z"/><rect x="134" y="132" width="92" height="68"/><rect x="146" y="110" width="68" height="22"/>
+<path d="M148 110a32 32 0 0 1 64 0z"/><rect x="179" y="62" width="2" height="16"/><rect x="290" y="62" width="22" height="138"/><rect x="286" y="62" width="30" height="34"/><path d="M286 62l15-30 15 30z"/><rect x="340" y="150" width="44" height="50"/></g>
+<path d="M168 200v-22a12 12 0 0 1 24 0v22z" fill="#0B1F23" fill-opacity=".7"/><circle cx="301" cy="79" r="9" fill="#0B1F23" fill-opacity=".6" stroke="#fff" stroke-opacity=".6"/><path d="M301 73v6l4 3" stroke="#fff" stroke-opacity=".8" fill="none"/>
+<rect y="200" width="400" height="20" fill="#06161a"/></svg><figcaption>Multan · City of Saints</figcaption></figure></div>
 <div class="checkout"><div class="panel"><h3>GearXSports Multan</h3><p style="margin:0 0 6px">WhatsApp: <a href="https://wa.me/923005336222">+92 300 5336222</a></p><p style="margin:0 0 16px">City: Multan, Punjab</p>
 <div class="actions"><a class="btn wa" href="https://wa.me/923005336222" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn alt" href="tel:+923005336222">Call now</a></div></div>
 <div class="panel"><h3>Send a message</h3><label for="cname">Your name</label><input id="cname"><label for="cmsg">Message</label><textarea id="cmsg" rows="3"></textarea><p class="err" id="cerr" role="alert"></p><button class="btn" id="csend">Send on WhatsApp</button></div></div></div></section>
@@ -211,7 +241,7 @@ footer .logo{font-size:22px}
 <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Your cart">
 <div class="dhead"><h3>Your cart</h3><button class="tab" id="dclose">Close</button></div>
 <div class="dbody" id="dlines"></div>
-<div class="dfoot"><div class="total"><span>Total</span><span id="dtotal">Rs 0</span></div><p class="err" id="derr" role="alert"></p>
+<div class="dfoot"><div id="dcalc"></div><div class="total"><span>Total</span><span id="dtotal">Rs 0</span></div><p class="err" id="derr" role="alert"></p>
 <div class="actions"><button class="btn" id="checkout">Checkout</button><button class="btn alt" id="keep">Keep shopping</button></div></div>
 </aside>
 <footer><div class="wrap"><span class="logo">Gear<b>X</b>Sports<small>Multan</small></span><br>WhatsApp <a href="https://wa.me/923005336222">0300 5336222</a></div></footer>
@@ -235,11 +265,19 @@ var $=function(i){return document.getElementById(i)};
 function rs(n){return "Rs "+n.toLocaleString("en-PK")}
 
 function items(){return PRODUCTS.filter(function(p){return cart[p.id]>0}).map(function(p){return {id:p.id,name:p.name,qty:cart[p.id],price:p.price,sub:cart[p.id]*p.price}})}
-function total(){return items().reduce(function(s,i){return s+i.sub},0)}
+function subtotal(){return items().reduce(function(s,i){return s+i.sub},0)}
+function firstOrder(){return !gst("gx-ordered",false)&&(!user||!gst("gx-orders-"+user.phone,[]).length)}
+function disc(){return firstOrder()?Math.round(subtotal()*0.05):0}
+function total(){return subtotal()-disc()}
+function lineHtml(p){return '<div class="ditem"><img alt="" src="'+p.img+'"><div class="dinfo"><b>'+p.name+'</b><span>'+rs(p.price)+' each</span><div class="qty"><button data-d="-1" data-id="'+p.id+'" aria-label="Remove one">−</button><output>'+cart[p.id]+'</output><button data-d="1" data-id="'+p.id+'" aria-label="Add one">+</button></div></div><div class="dright"><b>'+rs(cart[p.id]*p.price)+'</b><button class="rm" data-rm="'+p.id+'">Remove</button></div></div>'}
+function calcHtml(){var d=disc();return d?'<div class="line"><span>Subtotal</span><span>'+rs(subtotal())+'</span></div><div class="line dl"><span>First order discount (5%)</span><span>−'+rs(d)+'</span></div>':''}
 function renderSummary(){
- var it=items(),n=it.reduce(function(a,i){return a+i.qty},0);
- $("lines").innerHTML=it.length?it.map(function(i){return '<div class="line"><span>'+i.qty+' × '+i.name+'</span><span>'+rs(i.sub)+'</span></div>'}).join(""):'<div class="empty">Your order is empty. Add balls from the list above.</div>';
- $("dlines").innerHTML=it.length?PRODUCTS.filter(function(p){return cart[p.id]>0}).map(function(p){return '<div class="ditem"><img alt="" src="'+p.img+'"><div class="dinfo"><b>'+p.name+'</b><span>'+rs(p.price)+' each</span><div class="qty"><button data-d="-1" data-id="'+p.id+'" aria-label="Remove one">−</button><output>'+cart[p.id]+'</output><button data-d="1" data-id="'+p.id+'" aria-label="Add one">+</button></div></div><div class="dright"><b>'+rs(cart[p.id]*p.price)+'</b><button class="rm" data-rm="'+p.id+'">Remove</button></div></div>'}).join(""):'<div class="empty">Your cart is empty.</div>';
+ var n=items().reduce(function(a,i){return a+i.qty},0),sel=PRODUCTS.filter(function(p){return cart[p.id]>0}),fo=firstOrder();
+ $("lines").innerHTML=sel.length?sel.map(lineHtml).join(""):'<div class="empty">No ball selected yet. Tap a ball below to add it.</div>';
+ $("dlines").innerHTML=sel.length?sel.map(lineHtml).join(""):'<div class="empty">Your cart is empty.</div>';
+ $("pick").innerHTML=PRODUCTS.map(function(p){return '<button data-d="1" data-id="'+p.id+'"><img alt="" src="'+p.img+'"><span>'+p.name+'<small>'+rs(p.price)+'</small></span></button>'}).join("");
+ $("calc").innerHTML=$("dcalc").innerHTML=calcHtml();
+ $("promo").hidden=!fo;$("promo").textContent="First order offer: you get 5% off automatically. It applies to your first order only.";$("heroPill").hidden=!fo;
  tween($("total"),total());tween($("dtotal"),total());$("badge").textContent=n;
 }
 function ctl(p){var q=cart[p.id]||0;return q?'<div class="qty"><button data-d="-1" data-id="'+p.id+'" aria-label="Remove one '+p.name+'">−</button><output>'+q+'</output><button data-d="1" data-id="'+p.id+'" aria-label="Add one '+p.name+'">+</button></div>':'<button class="btn add" data-d="1" data-id="'+p.id+'">Add to cart</button>'}
@@ -292,6 +330,7 @@ var currentId=null;
 function message(id){
  var d=details(),t="*New order "+id+" - "+BRAND+"*\n\n";
  items().forEach(function(i){t+=i.qty+" x "+i.name+" = "+rs(i.sub)+"\n"});
+ if(disc()){t+="\nSubtotal: "+rs(subtotal())+"\nFirst order discount (5%): -"+rs(disc())}
  t+="\n*Total: "+rs(total())+"*\n\nName: "+d.name+"\nPhone: "+d.phone+"\nAddress: "+d.addr;
  if(d.note)t+="\nNote: "+d.note;
  return t;
@@ -313,6 +352,7 @@ function makePdf(id){
   doc.text(doc.splitTextToSize(i.name,70)[0],12,y);doc.text(String(i.qty),90,y);doc.text(String(i.price),103,y);doc.text(String(i.sub),122,y);
   doc.setDrawColor(210,215,210);doc.line(10,y+2,138,y+2);y+=8;
  });
+ var dd=disc();if(dd){doc.setFont("helvetica","normal");doc.setFontSize(10);y+=2;doc.text("Subtotal: Rs "+subtotal().toLocaleString("en-US"),138,y,{align:"right"});y+=6;doc.text("First order discount (5%): -Rs "+dd.toLocaleString("en-US"),138,y,{align:"right"});y+=4}
  doc.setFont("helvetica","bold");doc.setFontSize(12);y+=2;doc.text("Total: Rs "+total().toLocaleString("en-US"),138,y,{align:"right"});y+=9;
  if(d.note){doc.setFont("helvetica","normal");doc.setFontSize(9);doc.text(doc.splitTextToSize("Note: "+d.note,128),10,y);y+=10}
  doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(90,107,110);
@@ -338,7 +378,7 @@ $("pdf").onclick=function(){guard(function(){var id=begin();if(id)save(id)})};
 $("share").onclick=function(){guard(function(){
  var id=begin();if(!id)return;
  var f=new File([pdfBlob(id)],id+".pdf",{type:"application/pdf"});
- navigator.share({files:[f],text:message(id)}).catch(function(){});
+ navigator.share({files:[f],text:message(id)}).then(function(){recordOrder(id)}).catch(function(){});
 })};
 try{
  var tf=new File([new Blob(["x"])],"t.pdf",{type:"application/pdf"});
@@ -360,7 +400,11 @@ var SEED=[
  {pid:1,stars:4,name:"Bilal Ahmed",handle:"bilal.ahmed.k",date:"19 Oct 2026",text:"Bohat acchi ball hai, grip aur bounce dono sahi. Dobara order karunga."},
  {pid:3,stars:5,name:"Rizwan Haider",handle:"rizwan_haider_mtn",date:"9 Nov 2026",text:"Safed ball bilkul fresh aur seam green wali mazboot. Mohalle ke tournament mein use ki, sab ko pasand aayi."},
  {pid:2,stars:5,name:"Zeeshan Ali",handle:"zeeshan_ali_786",date:"1 Nov 2026",text:"Red ball ka rang aur stitching dono mast hain. Price bhi theek hai."},
- {pid:4,stars:5,name:"Faisal Mehmood",handle:"faisal_cricketer",date:"13 Nov 2026",text:"Academy ke bachon ke liye pack mangwaya, sab ko balls pasand aayin."}
+ {pid:4,stars:5,name:"Faisal Mehmood",handle:"faisal_cricketer",date:"13 Nov 2026",text:"Academy ke bachon ke liye pack mangwaya, sab ko balls pasand aayin."},
+ {pid:1,stars:5,name:"Kamran Butt",handle:"kamran_butt_mtn",date:"15 Nov 2026",text:"Ball ki shine aur seam dono top class. Match mein 30 overs tak bilkul theek rahi."},
+ {pid:3,stars:4,name:"Imran Qureshi",handle:"imran.qureshi",date:"8 Nov 2026",text:"Safed ball achi hai, swing bhi mili. Bas thori mehngi lagi lekin quality theek hai."},
+ {pid:2,stars:5,name:"Taimoor Khan",handle:"taimoor_khan_77",date:"24 Oct 2026",text:"Daily practice ke liye behtareen. Mohalle ke sab dost yehi mangwa rahe hain."},
+ {pid:4,stars:4,name:"Adnan Sheikh",handle:"adnan_sheikh_cr",date:"16 Nov 2026",text:"Pack of 3 value for money hai. Teeno balls ka size aur weight barabar laga."}
 ];
 function myRev(){return user?gst("gx-reviews",[]).filter(function(r){return r.phone===user.phone}):[]}
 function allRev(){return myRev().reverse().concat(SEED)}
@@ -368,15 +412,20 @@ function rating(pid){var a=allRev().filter(function(r){return r.pid===pid});retu
 function starsHtml(v){return '<span class="stars" style="--r:'+v.toFixed(2)+'" aria-hidden="true">★★★★★</span>'}
 function metaHtml(p){var r=rating(p.id);return starsHtml(r.avg)+'<small>'+(r.n?r.avg.toFixed(1)+' ('+r.n+')':'No reviews yet')+'</small><span class="sold">'+p.sold+'+ sold</span>'}
 function pname(id){var p=PRODUCTS.filter(function(x){return x.id===id})[0];return p?p.name:""}
-function renderReviews(){
- var list=allRev().filter(function(r){return rf==="all"||String(r.pid)===rf});
- $("rlist").innerHTML=list.map(function(r){return '<article class="rev"><div class="av">'+esc(r.name.charAt(0))+'</div><div><div class="rh"><b>'+esc(r.name)+'</b><span class="hd">@'+esc(r.handle)+'</span>'+(r.phone?'<span class="you">You</span>':'')+'</div>'+starsHtml(r.stars)+'<span class="tag">'+esc(pname(r.pid))+'</span><p>'+esc(r.text)+'</p><small>'+esc(r.date)+'</small></div></article>'}).join("")||'<p class="empty">No reviews yet for this ball.</p>';
+var rall=false,rpos=0,rhold=false,curSlide=0;
+function renderReviews(fade){
+ var pool=allRev().filter(function(r){return rf==="all"||String(r.pid)===rf}),shown=(rall||pool.length<=3)?pool:[0,1,2].map(function(k){return pool[(rpos+k)%pool.length]});
+ $("rlist").innerHTML=shown.map(function(r,k){return '<article class="rev'+(fade&&k===2?' swap':'')+'"><div class="av">'+esc(r.name.charAt(0))+'</div><div><div class="rh"><b>'+esc(r.name)+'</b><span class="hd">@'+esc(r.handle)+'</span>'+(r.phone?'<span class="you">You</span>':'')+'</div>'+starsHtml(r.stars)+'<span class="tag">'+esc(pname(r.pid))+'</span><p>'+esc(r.text)+'</p><small>'+esc(r.date)+'</small></div></article>'}).join("")||'<p class="empty">No reviews yet for this ball.</p>';
+ if(pool.length>3)$("rlist").innerHTML+='<button class="btn alt" id="rmore">'+(rall?"Show fewer":"Show all "+pool.length+" reviews")+'</button>';
  $("rform").hidden=!user;$("rlogin").hidden=!!user;
  PRODUCTS.forEach(function(p){var e=$("meta"+p.id);if(e)e.innerHTML=metaHtml(p)});
 }
+setInterval(function(){if(!rall&&!rhold&&!document.hidden){rpos++;renderReviews(true)}},4500);
+$("rlist").onclick=function(e){if(e.target.id==="rmore"){rall=!rall;renderReviews()}};
+$("rlist").onmouseenter=function(){rhold=true};$("rlist").onmouseleave=function(){rhold=false};
 function paintStars(){[].forEach.call($("sp").children,function(b){b.classList.toggle("on",Number(b.dataset.v)<=rv)})}
 $("sp").onclick=function(e){var b=e.target.closest("button");if(b){rv=Number(b.dataset.v);paintStars()}};
-$("rfilter").onchange=function(){rf=this.value;renderReviews()};
+$("rfilter").onchange=function(){rf=this.value;rpos=0;renderReviews()};
 $("rsubmit").onclick=function(){if(!user)return;var t=$("rtext").value.trim();
  if(!rv){$("rerr").textContent="Please choose a star rating.";return}
  if(t.length<5){$("rerr").textContent="Write a short comment (at least 5 letters).";return}
@@ -410,7 +459,7 @@ function refreshAcct(){$("acct").textContent=user?user.name.split(" ")[0]:"Login
 function prefill(){if(!user)return;[["name",user.name],["phone",user.phone],["addr",user.addr||""],["cname",user.name]].forEach(function(x){if(!$(x[0]).value)$(x[0]).value=x[1]})}
 $("acct").onclick=function(){user?openDash():openAuth("login")};
 
-function recordOrder(id){if(!user)return;var os=gst("gx-orders-"+user.phone,[]);os.push({id:id,date:today(),items:items(),total:total()});sst("gx-orders-"+user.phone,os);var d=details();if(d.addr){user.addr=d.addr;users[user.phone]=user;sst("gx-users",users)}}
+function recordOrder(id){var it=items(),tot=total();sst("gx-ordered",true);if(!user)return;var os=gst("gx-orders-"+user.phone,[]);os.push({id:id,date:today(),items:it,total:tot});sst("gx-orders-"+user.phone,os);var d=details();if(d.addr){user.addr=d.addr;users[user.phone]=user;sst("gx-users",users)}}
 function openDash(){renderDash();$("dash").classList.add("open")}
 function renderDash(){
  var os=gst("gx-orders-"+user.phone,[]),spent=os.reduce(function(s,o){return s+o.total},0),cn=Object.keys(cart).reduce(function(s,k){return s+cart[k]},0),mr=myRev();
@@ -434,17 +483,24 @@ $("csend").onclick=function(){var n=$("cname").value.trim(),m=$("cmsg").value.tr
  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Hello "+BRAND+(n?", I am "+n:"")+".\n"+m),"_blank")};
 
 function initSlider(){var el=$("slides"),dots=$("dots"),n=PRODUCTS.length,i=0,t;
- el.innerHTML=PRODUCTS.map(function(p,k){return '<div class="slide'+(k?'':' on')+'"><div class="disc"><img class="'+(p.id===4?'sway':'spin')+'" alt="'+p.name+'" src="'+p.img+'"></div><div class="cap"><b>'+p.name+'</b><span>'+rs(p.price)+'</span><button class="btn add" data-sl="'+p.id+'">Add to cart</button></div></div>'}).join("");
+ el.innerHTML=PRODUCTS.map(function(p,k){return '<div class="slide'+(k?'':' on')+'"><div class="disc"><img class="'+(p.id===4?'sway':'spin')+'" alt="'+p.name+'" src="'+p.img+'"></div><div class="cap"><b>'+p.name+'</b><span>'+rs(p.price)+'</span><div class="capb"><button class="btn add" data-sl="'+p.id+'">Add to cart</button><a class="btn alt hgh" href="#order" data-so="'+p.id+'">Order now</a></div></div></div>'}).join("");
  dots.innerHTML=PRODUCTS.map(function(p,k){return '<button aria-label="Show '+p.name+'" data-i="'+k+'"'+(k?'':' class="on"')+'></button>'}).join("");
- function go(k){i=(k+n)%n;[].forEach.call(el.children,function(s,j){s.classList.toggle("on",j===i)});[].forEach.call(dots.children,function(d,j){d.classList.toggle("on",j===i)})}
+ function go(k){i=(k+n)%n;curSlide=i;[].forEach.call(el.children,function(s,j){s.classList.toggle("on",j===i)});[].forEach.call(dots.children,function(d,j){d.classList.toggle("on",j===i)})}
  function run(){clearInterval(t);t=setInterval(function(){go(i+1)},3500)}
  dots.onclick=function(e){var b=e.target.closest("button");if(b){go(Number(b.dataset.i));run()}};
- el.onclick=function(e){var b=e.target.closest("[data-sl]");if(b)change(b.dataset.sl,1,false,b.closest(".slide"))};
+ el.onclick=function(e){var o=e.target.closest("[data-so]");if(o){change(o.dataset.so,1);return}var b=e.target.closest("[data-sl]");if(b)change(b.dataset.sl,1,false,b.closest(".slide"))};
  $("banner").onmouseenter=function(){clearInterval(t)};$("banner").onmouseleave=run;run();
 }
 window.addEventListener("scroll",function(){var cur="top";["top","shop","details","order","contact"].forEach(function(id){if($(id).getBoundingClientRect().top<170)cur=id});
  [].forEach.call(document.querySelectorAll(".nav a"),function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+cur)})},{passive:true});
 
+var SUN='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',MOON='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+function effTheme(){var t=document.documentElement.getAttribute("data-theme");return t||((window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}
+function setTheme(t,keep){document.documentElement.setAttribute("data-theme",t);if(keep)sst("gx-theme",t);$("theme").innerHTML=t==="dark"?SUN:MOON;$("theme").setAttribute("aria-label",t==="dark"?"Switch to light mode":"Switch to dark mode")}
+$("theme").onclick=function(){setTheme(effTheme()==="dark"?"light":"dark",true)};
+setTheme(gst("gx-theme",null)||effTheme(),false);
+$("lines").onclick=onCart;$("pick").onclick=onCart;
+$("heroOrder").onclick=function(){if(!items().length)change(PRODUCTS[curSlide].id,1)};
 (function(){var ph=gst("gx-session",null);if(ph&&users[ph])user=users[ph]})();
 $("rprod").innerHTML=PRODUCTS.map(function(p){return '<option value="'+p.id+'">'+p.name+'</option>'}).join("");
 $("rfilter").innerHTML='<option value="all">All balls</option>'+PRODUCTS.map(function(p){return '<option value="'+p.id+'">'+p.name+'</option>'}).join("");
